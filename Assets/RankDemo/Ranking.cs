@@ -6,16 +6,16 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using WeChatWASM;
 
-[System.Serializable]
-public class OpenDataMessage
-{
-    // type 用于表明时间类型
-    public string type;
+//[System.Serializable]
+//public class OpenDataMessage
+//{
+//    // type 用于表明时间类型
+//    public string type;
 
-    public string shareTicket;
+//    public string shareTicket;
 
-    public int score;
-}
+//    public int score;
+//}
 
 public class Ranking : MonoBehaviour
 {
