@@ -97,6 +97,11 @@ public class Ranking : MonoBehaviour
         var referenceResolution = scaler.referenceResolution;
         var p = RankBody.transform.position;
 
+        Debug.Log($"[FriendRankTest] 渲染主体的位置 {p.x} {p.y}");
+        Debug.Log($"[FriendRankTest] 渲染主体的大小 {RankBody.rectTransform.rect.width}  {RankBody.rectTransform.rect.height}");
+        Debug.Log($"[FriendRankTest] 屏幕的大小 {Screen.width}  {Screen.height}");
+        Debug.Log($"[FriendRankTest] 画布分辨率的大小 {referenceResolution.x}  {referenceResolution.y}");
+
         WX.ShowOpenData(
             RankBody.texture,
             (int)p.x,
@@ -104,6 +109,9 @@ public class Ranking : MonoBehaviour
             (int)((Screen.width / referenceResolution.x) * RankBody.rectTransform.rect.width),
             (int)((Screen.width / referenceResolution.x) * RankBody.rectTransform.rect.height)
         );
+
+        Debug.Log($"[FriendRankTest] 展示榜单 {(int)p.x} {Screen.height - (int)p.y} {(int)((Screen.width / referenceResolution.x) * RankBody.rectTransform.rect.width)} " +
+            $"{(int)((Screen.width / referenceResolution.x) * RankBody.rectTransform.rect.height)}");
     }
 
     void Init()
