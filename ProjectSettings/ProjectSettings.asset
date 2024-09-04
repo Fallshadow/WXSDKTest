@@ -835,8 +835,6 @@ PlayerSettings:
   openHarmonySplashScreen: {fileID: 0}
   openHarmonySplashScreenScale: 0
   OpenHarmonyTargetArchitectures: 2
-  openHarmonyClientID: 
-  openHarmonyAppID: 
   openHarmonyDeviceTypes: 7
   openHarmonySupportWindowModes: 1
   OpenHarmonyBundleVersionCode: 1
@@ -861,7 +859,7 @@ PlayerSettings:
     -s ERROR_ON_UNDEFINED_SYMBOLS=0 -s TOTAL_MEMORY=256MB -s EXPORTED_RUNTIME_METHODS=''["ccall","cwrap","stackTrace","addRunDependency","removeRunDependency","FS_createPath","FS_createDataFile","stackTrace","writeStackCookie","checkStackCookie","lengthBytesUTF8","stringToUTF8"]''
     --profiling-funcs '
   weixinMiniGameModulesDirectory: 
-  weixinMiniGameTemplate: PATH:E:\MyGitHubPage\WXSDKTest\Library\PackageCache\com.qq.weixin.minigame@981890fdaa\WebGLTemplates\WXTemplate2022TJ
+  weixinMiniGameTemplate: PATH:D:\ZYQ\WXSDKTest\Library\PackageCache\com.qq.weixin.minigame@981890fdaa\WebGLTemplates\WXTemplate2022TJ
   weixinMiniGameAnalyzeBuildSize: 0
   weixinMiniGameUseEmbeddedResources: 0
   weixinMiniGameCompressionFormat: 2
