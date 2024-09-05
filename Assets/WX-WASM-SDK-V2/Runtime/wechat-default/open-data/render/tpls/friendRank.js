@@ -37,7 +37,21 @@ export default function anonymous(it) {
       const l1 = arr1.length - 1;
       while (index < l1) {
           item = arr1[(index += 1)];
-          out += ` <view class="listItem"> <image src="open-data/render/image/rankCommonBg.png" class="rankCommonBg"></image> <text class="rankIndex" value="${(index + 1) || 0}"></text> <image class="rankAvatar" src="${item.avatarUrl}"></image> <text class="rankName" value="${item.nickname}"></text> <text class="rankScoreVal" value="${item.score || 0}"></text> <text class="rankScoreTip" value="分"></text> </view> `;
+
+          if(index == 0){
+            out += ` <view class="listItem"> <image src="open-data/render/image/rankOneBg.png" class="rankCommonBg"></image> <text class="rankIndex" value="${(index + 1) || 0}"></text> <image class="rankAvatar" src="${item.avatarUrl}"></image> <text class="rankName" value="${item.nickname}"></text> <text class="rankScoreVal" value="${item.score || 0}"></text> <text class="rankScoreTip" value="分"></text> </view> `;
+          }
+          else if(index == 1){
+            out += ` <view class="listItem"> <image src="open-data/render/image/rankTwoBg.png" class="rankCommonBg"></image> <text class="rankIndex" value="${(index + 1) || 0}"></text> <image class="rankAvatar" src="${item.avatarUrl}"></image> <text class="rankName" value="${item.nickname}"></text> <text class="rankScoreVal" value="${item.score || 0}"></text> <text class="rankScoreTip" value="分"></text> </view> `;
+          }
+          else if(index == 2){
+            out += ` <view class="listItem"> <image src="open-data/render/image/rankThreeBg.png" class="rankCommonBg"></image> <text class="rankIndex" value="${(index + 1) || 0}"></text> <image class="rankAvatar" src="${item.avatarUrl}"></image> <text class="rankName" value="${item.nickname}"></text> <text class="rankScoreVal" value="${item.score || 0}"></text> <text class="rankScoreTip" value="分"></text> </view> `;
+          }
+          else{
+            out += ` <view class="listItem"> <image src="open-data/render/image/rankCommonBg.png" class="rankCommonBg"></image> <text class="rankIndex" value="${(index + 1) || 0}"></text> <image class="rankAvatar" src="${item.avatarUrl}"></image> <text class="rankName" value="${item.nickname}"></text> <text class="rankScoreVal" value="${item.score || 0}"></text> <text class="rankScoreTip" value="分"></text> </view> `;
+          }
+
+
       }
   }
   out += ' </scrollview> </view></view>';
