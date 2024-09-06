@@ -31,6 +31,8 @@
 export default function anonymous(it) {
   let out = '<view class="container" id="main"> <view class="rankList"> <scrollview class="list" scrollY="true"> ';
   const arr1 = it.data;
+  let selfIndex = 1;
+  let selfItem;
   if (arr1) {
       let item;
       let index = -1;
@@ -38,7 +40,12 @@ export default function anonymous(it) {
       while (index < l1) {
           item = arr1[(index += 1)];
 
-          if(index == 0){
+          if(item.isSelf){
+            selfIndex = index + 1;
+            selfItem = item;
+            out += ` <view class="listItem"> <image src="open-data/render/image/rankMyBg.png" class="rankCommonBg"></image> <text class="rankIndex" value="${(index + 1) || 0}"></text> <image class="rankAvatar" src="${item.avatarUrl}"></image> <text class="rankName" value="${item.nickname}"></text> <text class="rankScoreVal" value="${item.score || 0}"></text> <text class="rankScoreTip" value="分"></text> </view> `;
+          }
+          else if(index == 0){
             out += ` <view class="listItem"> <image src="open-data/render/image/rankOneBg.png" class="rankCommonBg"></image> <text class="rankIndex" value="${(index + 1) || 0}"></text> <image class="rankAvatar" src="${item.avatarUrl}"></image> <text class="rankName" value="${item.nickname}"></text> <text class="rankScoreVal" value="${item.score || 0}"></text> <text class="rankScoreTip" value="分"></text> </view> `;
           }
           else if(index == 1){
@@ -50,10 +57,12 @@ export default function anonymous(it) {
           else{
             out += ` <view class="listItem"> <image src="open-data/render/image/rankCommonBg.png" class="rankCommonBg"></image> <text class="rankIndex" value="${(index + 1) || 0}"></text> <image class="rankAvatar" src="${item.avatarUrl}"></image> <text class="rankName" value="${item.nickname}"></text> <text class="rankScoreVal" value="${item.score || 0}"></text> <text class="rankScoreTip" value="分"></text> </view> `;
           }
-
-
       }
   }
-  out += ' </scrollview> </view></view>';
+  out += ' </scrollview> </view>';
+  out += '<view class="rankSelf">';
+  out += ` <view class="listItem"> <image src="open-data/render/image/rankMyBg.png" class="rankCommonBg"></image> <text class="rankIndex" value="${selfIndex || 0}"></text> <image class="rankAvatar" src="${selfItem.avatarUrl}"></image> <text class="rankName" value="${selfItem.nickname}"></text> <text class="rankScoreVal" value="${selfItem.score || 0}"></text> <text class="rankScoreTip" value="分"></text> </view> `;
+
+  out +='</view></view>'
   return out;
 }
