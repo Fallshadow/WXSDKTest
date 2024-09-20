@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using WeChatWASM;
 
@@ -22,14 +23,20 @@ public class TestShellWXSDKManager : MonoBehaviour {
         instance = this;
     }
 
-    public void InitSDK() {
-        WX.InitSDK((code) => { Debug.Log($"[WX][InitSDK] Completed"); });
+    public void InitSDK(Action callback) {
+        WX.InitSDK((code) => { 
+            Debug.Log($"[WX][InitSDK] Completed");
+            callback?.Invoke();
+        });
     }
 
-    public void Login() {
+    public void Login(Action failCallback = null) {
         LoginOption info = new LoginOption();
         info.complete = (result) => { Debug.Log($"[WX][Login] Completed"); };
-        info.fail = (result) => { Debug.Log($"[WX][Login] Fail : {result.errMsg}"); };
+        info.fail = (result) => { 
+            Debug.Log($"[WX][Login] Fail : {result.errMsg}");
+            failCallback?.Invoke();
+        };
         info.success = (result) => {
             Debug.Log($"[WX][Login] Success : {result.code}");
             Wx_Code = result.code;
