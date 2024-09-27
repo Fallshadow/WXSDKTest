@@ -8,12 +8,12 @@ public partial class TestShellNetManager : MonoBehaviour {
     private const string wxLoginAddress = "https://XXXXX.com/XXXXX";
 
     public void HttpGameLogin() {
-        //// loginInfo ·şÎñ¶ËËùĞèµÇÂ½Êı¾İ
-        //WSWXLoginInfoRequest loginInfo = new WSWXLoginInfoRequest();
-        //loginInfo.username = PlayerManager.instance.username;
-        //loginInfo.wx_code = PlayerManager.instance.wx_code;
-        //Debug.Log($"[Bobing][Http] name : {loginInfo.username} code : {loginInfo.wx_code}");
-        StartCoroutine(PostLoginHttpRequest("Êı¾İ×ªjson string"));
+        // loginInfo æœåŠ¡ç«¯æ‰€éœ€ç™»é™†æ•°æ®
+        // WSWXLoginInfoRequest loginInfo = new WSWXLoginInfoRequest();
+        // loginInfo.username = PlayerManager.instance.username;
+        // loginInfo.wx_code = PlayerManager.instance.wx_code;
+        // Debug.Log($"[Bobing][Http] name : {loginInfo.username} code : {loginInfo.wx_code}");
+        StartCoroutine(PostLoginHttpRequest("json string"));
     }
 
     private IEnumerator PostLoginHttpRequest(string loginInfoString) {
@@ -30,7 +30,7 @@ public partial class TestShellNetManager : MonoBehaviour {
                 Debug.LogError(loginRequest.error);
             }
             else {
-                // ÊÕµ½·şÎñ¶ËTokenºó½øĞĞµÇÂ½
+                // æ”¶åˆ°æœåŠ¡ç«¯Tokenåè¿›è¡Œç™»é™†
                 Debug.Log("[Http] Form upload complete And receive data :" + loginRequest.downloadHandler.text);
                 //WSWXLoginInfoReceive loginInfoReceive = JsonUtility.FromJson<WSWXLoginInfoReceive>(loginRequest.downloadHandler.text);
                 //PlayerManager.instance.token = loginInfoReceive.token;

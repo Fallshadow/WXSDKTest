@@ -6,8 +6,8 @@ public partial class TestShellNetManager : MonoBehaviour {
 
     private const string mainAddress = "wss://XXXXX.com/XXXXX";
     private WebSocket gameMainSocket;
-    private float heartbeatInterval = 10f; // ĞÄÌø¼ä¸ôÊ±¼ä£¨Ãë£©
-    private float timer = 0f; // ¼ÆÊ±Æ÷
+    private float heartbeatInterval = 10f; // å¿ƒè·³é—´éš”æ—¶é—´ï¼ˆç§’ï¼‰
+    private float timer = 0f; // è®¡æ—¶å™¨
 
     private void Awake() {
         instance = this;
@@ -49,15 +49,15 @@ public partial class TestShellNetManager : MonoBehaviour {
     private void MainSocket_OnMessage(object sender, MessageEventArgs e) {
         if(e.IsBinary) {
             if(e.RawData.Length > 0) {
-                Debug.Log($"[WebSocket][OnMessage] ½ÓÊÜµ½·şÎñÆ÷¶ş½øÖÆĞÅÏ¢ {e.RawData[0]}");
+                Debug.Log($"[WebSocket][OnMessage] æ¥å—åˆ°æœåŠ¡å™¨äºŒè¿›åˆ¶ä¿¡æ¯ {e.RawData[0]}");
             }
             else {
-                Debug.Log($"[WebSocket][OnMessage] ½ÓÊÜµ½·şÎñÆ÷¶ş½øÖÆĞÅÏ¢ µ«ÊÇÎª¿Õ");
+                Debug.Log($"[WebSocket][OnMessage] æ¥å—åˆ°æœåŠ¡å™¨äºŒè¿›åˆ¶ä¿¡æ¯ ä½†æ˜¯ä¸ºç©º");
             }
             return;
         }
         else if(e.IsText) {
-            Debug.Log($"[WebSocket][OnMessage] ½ÓÊÜµ½·şÎñÆ÷ÎÄ±¾ĞÅÏ¢ {e.Data}");
+            Debug.Log($"[WebSocket][OnMessage] æ¥å—åˆ°æœåŠ¡å™¨æ–‡æœ¬ä¿¡æ¯ {e.Data}");
         }
     }
 
